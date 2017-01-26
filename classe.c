@@ -1,9 +1,14 @@
+//*****************************************************************//
+//***           Fichiers eleve.c et eleve.h                     ***//
+//***              par Adrien et Lenny                          ***//
+//*****************************************************************//
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "classe.h"
 
-//fonction pour Afficher la classe
+//Class display function
 void AfficherClasse(Classe_t *C,int taille)
 {
 	char choix[3];
@@ -11,10 +16,10 @@ void AfficherClasse(Classe_t *C,int taille)
 	Classe_t *niveau=C;
 	printf("Quelle classe voulez vous afficher?");
 	scanf("%s",choix);
-	//on boucle pour selectionner la bonne classe
+	//We use "while" function for select next class
 	while(C->niveau!=choix)
 	{
-		C=C->suivant;//on passe a la classe suivante
+		C=C->suivant;//we select next class
 	}
 	printf("Nom de la classe:\t%s\nProfesseur:\t%s %s\n",C.NomClasse,C.Prof.nomProf,C.Prof.prenomProf);
 	printf("Liste des eleves:\n");
@@ -24,7 +29,7 @@ void AfficherClasse(Classe_t *C,int taille)
 	}
 }
 
-//fonction de saisie de la classe
+//Class input function
 void SaisirClasse(Classe_t *C,int taille)
 {
 	int i=0;
