@@ -3,6 +3,7 @@
 
 #include "classe.h"
 
+//fonction pour Afficher la classe
 void AfficherClasse(Classe_t *C,int taille)
 {
 	char choix[3];
@@ -10,9 +11,10 @@ void AfficherClasse(Classe_t *C,int taille)
 	Classe_t *niveau=C;
 	printf("Quelle classe voulez vous afficher?");
 	scanf("%s",choix);
+	//on boucle pour selectionner la bonne classe
 	while(C->niveau!=choix)
 	{
-		C=C->suivant;
+		C=C->suivant;//on passe a la classe suivante
 	}
 	printf("Nom de la classe:\t%s\nProfesseur:\t%s %s\n",C.NomClasse,C.Prof.nomProf,C.Prof.prenomProf);
 	printf("Liste des eleves:\n");
@@ -22,6 +24,7 @@ void AfficherClasse(Classe_t *C,int taille)
 	}
 }
 
+//fonction de saisie de la classe
 void SaisirClasse(Classe_t *C,int taille)
 {
 	int i=0;
