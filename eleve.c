@@ -1,3 +1,8 @@
+//*****************************************************************//
+//***           Fichiers eleve.c et eleve.h                     ***//
+//***              par Elvin et Manuel                          ***//
+//*****************************************************************//
+
 #include "eleve.h" //header eleve.h file called
 
 
@@ -113,7 +118,7 @@ void SaisirEleve(Eleve_t *E)
 }
 
 
-
+//test main a supprimer
 int main()
 {
 
@@ -121,16 +126,6 @@ int main()
 
 	Eleve_t  Elvin={0};
 
-
-
-	// affiche la date du jour
-    //AfficherDatejour(date_jour );
-
-	// Affichage naissance d'un élève (plusieurs formats)
-	//AfficherDate(Elvin) ;
-
-	// saisir la date de naissence d'un élève
-    //AfficherDate(Elvin);
     SaisirEleve(&Elvin);
     AfficherEleve(Elvin);
 
