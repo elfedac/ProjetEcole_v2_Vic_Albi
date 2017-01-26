@@ -1,4 +1,4 @@
-#include "eleve.h"
+#include "eleve.h" //header eleve.h file called
 
 
 /* Student birthday input function */
@@ -13,7 +13,7 @@ void SaisirDate(Eleve_t *Y)
     time_t birthday; //Student birthday converted to POSIX
 
     //Student birthday input
-    printf ("\nSaisissez la date de naissance de l'élève au format (JJ/MM/AAAA): ");
+    printf ("\nSaisissez la date de naissance de l'élève (JJ/MM/AAAA): ");
 	scanf ("%d/%d/%d",	&Y->DateNaissance.tm_mday, &Y->DateNaissance.tm_mon, &Y->DateNaissance.tm_year);
 
 	// Time structure month and year modified before POSIX conversion
@@ -33,8 +33,13 @@ void SaisirDate(Eleve_t *Y)
 /*Display Student features*/
 void AfficherEleve(Eleve_t E)
 {
+    CLEAR();
+
+    //Title display
+    printf("**********\tCaracteristisques de l'eleve\t**********\n\n");
+
     //Display last name, first name & age
-    printf("\nNom de l'eleve : %s\nPrenom de l'eleve :%s\nAge : %d",
+    printf("\nNom de l'eleve : %s\nPrenom de l'eleve : %s\nAge : %d ans\n",
             E.nomEleve, E.prenomEleve, E.age);
 
     //Student Sex verification to display the true information
@@ -47,8 +52,9 @@ void AfficherEleve(Eleve_t E)
         printf("\nSexe : Féminin\n");
         }
 
-  	printf ("\nDate de naissance : %d/%d/%d\n", E.DateNaissance.tm_mday, 1 + E.DateNaissance.tm_mon, E.DateNaissance.tm_year);
+  	printf ("\nDate de naissance : %d/%02d/%d\n", E.DateNaissance.tm_mday, 1 + E.DateNaissance.tm_mon, 1900 + E.DateNaissance.tm_year);
 
+  	//Student school year repeat verification to display the true information
     if (E.redoublant==1)
         {
         printf("\nEleve redoublant\n");
@@ -64,16 +70,19 @@ void AfficherEleve(Eleve_t E)
 /*Student features input*/
 void SaisirEleve(Eleve_t *E)
 {
+
+    printf("*****\tSaisie des caracteristisques de l'eleve\t*****\n\n");
+
     //Last name student input
-    printf("\nSaisissez le nom de l'eleve : ");
+    printf("\nSaisissez le nom de l'eleve: ");
     fgets(E->nomEleve,NOMMAX,stdin);
 
     //Fist name student input
-    printf("Saisissez le prenom de l'eleve : ");
+    printf("\nSaisissez le prenom de l'eleve: ");
     fgets(E->prenomEleve,PRENOMMAX,stdin);
 
     //Gender student input
-    printf("Saisissez le Sexe de l'eleve (F / M) : ");
+    printf("\nSaisissez le Sexe de l'eleve (F / M): ");
     scanf("%c",&E->sexe);
     getchar();
 
@@ -81,13 +90,13 @@ void SaisirEleve(Eleve_t *E)
     while((E->sexe!='F') && (E->sexe!='M'))
 	{
 		CLEAR(); //if wrong input, system console screen cleared before displaying new choice
-		printf("\nJe n'ai pas compris, veuillez re-saisir le sexe (F / M): ");
+		printf("\nJe n'ai pas compris...\nVeuillez re-saisir le sexe (F / M): ");
 		scanf("%c",&E->sexe);
 		getchar();
 	}
 
     //Student school year repeat input
-    printf("L'élève est-il redoublant ? (1 pour redoublant/ 0 pour non redoublant): ");
+    printf("\nL'élève est-il redoublant?\n(1 si redoublant/ 0 si non redoublant): ");
     scanf("%d",&E->redoublant);
     getchar();
 
