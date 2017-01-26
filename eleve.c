@@ -8,25 +8,24 @@ void SaisirDate(Eleve_t *Y)
     memset(&Y->DateNaissance, 0 , sizeof (Y->DateNaissance));
 
     //déclaration et récupération du temps écoulé depuis le 01/01/1970 et la date du jour
-    //time_t aujourdhui=time(NULL);
+    time_t aujourdhui=time(NULL);
 
-    //time_t *datenaissance; // date de naissance eleve qui sera convertie à la norme POSIX
+    time_t birthday; // date de naissance eleve qui sera convertie à la norme POSIX
 
     printf ("\nSaisissez l'age de l'élève au format (JJ/MM/AAAA) : ");
 	scanf ("%d/%d/%d",	&Y->DateNaissance.tm_mday, &Y->DateNaissance.tm_mon, &Y->DateNaissance.tm_year);
 
 	// Opérer aux modifications nécessaires avant la tranformation POSIX
 	// En transférant dans une nouvelle variable, les éléments modifiés
-    //Y->DateNaissance.tm_mon-=1;
-    //Y->DateNaissance.tm_year-=1900;
+    Y->DateNaissance.tm_mon-=1;
+    Y->DateNaissance.tm_year-=1900;
 
-    //datenaissance=mktime(&Y->DateNaissance);
+    birthday=mktime(&Y->DateNaissance);
 
     //Déclaration + initialisation du double Age pour le calcul
     //du temps écoulé entre Date Naissance et date du jour (le mktime convertit DateNaissance en secondes)
-    //double Age=difftime(datenaissance, aujourdhui)/365.25;
-    //printf("%lf", Age);
-
+    double Age=difftime(aujourdhui, birthday)/(365.25*24*3600);
+    Y->age=Age;
 
 }
 
@@ -47,7 +46,7 @@ void AfficherEleve(Eleve_t E)
         }
 
 
-  	printf ("\nDate de naissance : %d/%d/%d\n", E.DateNaissance.tm_mday, E.DateNaissance.tm_mon, E.DateNaissance.tm_year);
+  	printf ("\nDate de naissance : %d/%d/%d\n", E.DateNaissance.tm_mday, 1 + E.DateNaissance.tm_mon, E.DateNaissance.tm_year);
 
     if (E.redoublant==1)
         {
@@ -70,19 +69,17 @@ void SaisirEleve(Eleve_t *E)
     printf("Saisissez le prenom de l'eleve : ");
     fgets(E->prenomEleve,PRENOMMAX,stdin);
 
-    CLEAR();
-
     printf("Saisissez le Sexe de l'eleve (F / M) : ");
     scanf("%c",&E->sexe);
     printf("%c", E->sexe);
 
-    /*
-    while(E->sexe!='F' || E->sexe!='M')
+
+    /*while(E->sexe!='F' || E->sexe!='M')
 	{
 		printf("\nJe n'ai pas compris, veuillez re-saisir le sexe (F / M): ");
 		scanf("%c",&E->sexe);
 		getchar();
-	} Ne fonctionne pas, à corriger*/
+	}*/
 
     printf("L'élève est-il redoublant ? (1 pour redoublant/ 0 pour non redoublant): ");
     scanf("%d",&E->redoublant);
