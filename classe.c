@@ -1,6 +1,6 @@
 //*****************************************************************//
-//***           Fichiers eleve.c et eleve.h                     ***//
-//***              par Adrien et Lenny                          ***//
+//***           Folder eleve.c and eleve.h                     ***//
+//***              by Adrien et Lenny                          ***//
 //*****************************************************************//
 
 #include <stdio.h>
@@ -8,7 +8,7 @@
 
 #include "classe.h"
 
-//Class display function
+//Classroom display function
 void AfficherClasse(Classe_t *C,int taille)
 {
 	char choix[3];
@@ -29,7 +29,7 @@ void AfficherClasse(Classe_t *C,int taille)
 	}
 }
 
-//Class input function
+//Classroom input function
 void SaisirClasse(Classe_t *C,int taille)
 {
 	int i=0;
