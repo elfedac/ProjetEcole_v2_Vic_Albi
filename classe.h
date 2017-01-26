@@ -9,21 +9,21 @@
 #define NBRELEVE 25
 
 
-//structure recursive pour la classe
+//Recursive structure classroom
 typedef struct Classe
 {
-char NomClasse[NOMCLASSE];      // permet d'eviter confusion si deux classes CE1 créées (on pourra les appeler CE1-1 et CE1-2 par exemple)
-char niveau [3];                // niveaux au sens strict : CP, CE1, CE2, CM1 et CM2
-Prof_t Prof;                    // structure enseignant ajouté mais lors de l'affichage de la classe, on se limite à afficher nom et prénom tout simplement
-int nbEleve;                    //
+char NomClasse[NOMCLASSE];      // for tcheck class they have same level
+char niveau [3];                // level of class : CP, CE1, CE2, CM1 et CM2
+Prof_t Prof;                    // Teacher structure added but in class display, it's limited to display lastname and firstname
+int nbEleve;                    // 
 Eleve_t TabEleve[NBRELEVE];     //
 struct Classe *suivant;         //
 }Classe_t;
 
-//fonction d'affichage de classe
+//Classroom display function
 void AfficherClasse(Classe_t *C,int taille);
 
-//fonction de saisie de classe
+//Classroom input function 
 void SaisirClasse(Classe_t **C,int taille);
 
 #endif
