@@ -31,6 +31,21 @@ void SaisirEcole(Ecole_t &Ec)
 
     printf("\nSaisir le prenom du Directeur(trice): ");
     fgets(Ec->prenomDirecteur, PRENOMMAX, stdin);
+    
+    
+    FILE *ptr_fichierEcole; // création d'un pointeur FILE
+
+    ptr_fichierEcole = fopen("fichier_ecole.csv", "w"); // ouverture du fichier secret en mode "read"
+
+    if(!ptr_fichierEcole)                               // si l'ouverture se passe mal
+    {
+        perror("erreur ouverture du fichier");
+        exit(EXIT_FAILURE);
+    }
+    else
+    {
+    à compléter....parce que je dois partir
+    }
 
 
 }
