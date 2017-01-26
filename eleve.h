@@ -8,8 +8,7 @@
 
 #define NOMMAX 30
 #define PRENOMMAX 20
-
-
+#define CLEAR()     system("clear");
 
 //structure de l'eleve
 typedef struct Eleve

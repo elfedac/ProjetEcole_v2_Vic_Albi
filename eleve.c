@@ -1,28 +1,6 @@
 #include "eleve.h"
 
 
-/* AFFICHE LA DATE DU JOUR */
-void AfficherDatejour(time_t date_jour )
-{// Buffers contenant les chaines finales
-
-	char buffer[150] ;
-
-	// Formatage de l'affichage
-	strftime(buffer, 150, "Date du jour : %d/%m/%Y", localtime (&date_jour));
-
-	// Affichage de la chaîne créée (Affichage 1)
-	printf("\n%s\n", buffer);
-}
-
-/* AFFICHE LA DATE DE NAISSENCE D'UN ELEVE + SON AGE */
-void AfficherDate(Eleve_t E)
-{
-	printf ("\nL'ELEVE EST NE LE\t: %d/%1.d/%d",
-				E.DateNaissance.tm_mday,
-				E.DateNaissance.tm_mon,
-				E.DateNaissance.tm_year);
-}
-
 /* SAISIE LA DATE DE NAISSANCE D'UN ELEVE */
 void SaisirDate(Eleve_t *Y)
 {
@@ -30,24 +8,24 @@ void SaisirDate(Eleve_t *Y)
     memset(&Y->DateNaissance, 0 , sizeof (Y->DateNaissance));
 
     //déclaration et récupération du temps écoulé depuis le 01/01/1970 et la date du jour
-    time_t aujourdhui=time(NULL);
+    //time_t aujourdhui=time(NULL);
 
-    time_t *datenaissance; // date de naissance eleve qui sera convertie à la norme POSIX
+    //time_t *datenaissance; // date de naissance eleve qui sera convertie à la norme POSIX
 
     printf ("\nSaisissez l'age de l'élève au format (JJ/MM/AAAA) : ");
 	scanf ("%d/%d/%d",	&Y->DateNaissance.tm_mday, &Y->DateNaissance.tm_mon, &Y->DateNaissance.tm_year);
 
 	// Opérer aux modifications nécessaires avant la tranformation POSIX
 	// En transférant dans une nouvelle variable, les éléments modifiés
-    Y->DateNaissance.tm_mon-=1;
-    Y->DateNaissance.tm_year-=1900;
+    //Y->DateNaissance.tm_mon-=1;
+    //Y->DateNaissance.tm_year-=1900;
 
-    datenaissance=mktime(&Y->DateNaissance);
+    //datenaissance=mktime(&Y->DateNaissance);
 
     //Déclaration + initialisation du double Age pour le calcul
     //du temps écoulé entre Date Naissance et date du jour (le mktime convertit DateNaissance en secondes)
-    double Age=difftime(datenaissance, aujourdhui)/365.25;
-    printf("%lf", Age);
+    //double Age=difftime(datenaissance, aujourdhui)/365.25;
+    //printf("%lf", Age);
 
 
 }
@@ -88,10 +66,11 @@ void SaisirEleve(Eleve_t *E)
 {
     printf("\nSaisissez le nom de l'eleve : ");
     fgets(E->nomEleve,NOMMAX,stdin);
-    //sscanf();
 
     printf("Saisissez le prenom de l'eleve : ");
     fgets(E->prenomEleve,PRENOMMAX,stdin);
+
+    CLEAR();
 
     printf("Saisissez le Sexe de l'eleve (F / M) : ");
     scanf("%c",&E->sexe);
