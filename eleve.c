@@ -1,56 +1,57 @@
 #include "eleve.h"
 
 
-/* SAISIE LA DATE DE NAISSANCE D'UN ELEVE */
+/* Student birthday input function */
 void SaisirDate(Eleve_t *Y)
 {
-    //Initialisation de la structure temps DateNaissance Eleve
+    //Initialisation student birthday time structure
     memset(&Y->DateNaissance, 0 , sizeof (Y->DateNaissance));
 
-    //déclaration et récupération du temps écoulé depuis le 01/01/1970 et la date du jour
+    //Localtime recovery
     time_t aujourdhui=time(NULL);
 
-    time_t birthday; // date de naissance eleve qui sera convertie à la norme POSIX
+    time_t birthday; //Student birthday converted to POSIX
 
-    printf ("\nSaisissez l'age de l'élève au format (JJ/MM/AAAA) : ");
+    //Student birthday input
+    printf ("\nSaisissez la date de naissance de l'élève au format (JJ/MM/AAAA): ");
 	scanf ("%d/%d/%d",	&Y->DateNaissance.tm_mday, &Y->DateNaissance.tm_mon, &Y->DateNaissance.tm_year);
 
-	// Opérer aux modifications nécessaires avant la tranformation POSIX
-	// En transférant dans une nouvelle variable, les éléments modifiés
-    Y->DateNaissance.tm_mon-=1;
+	// Time structure month and year modified before POSIX conversion
+	Y->DateNaissance.tm_mon-=1;
     Y->DateNaissance.tm_year-=1900;
 
+    //Student birthday converted in seconds
     birthday=mktime(&Y->DateNaissance);
 
-    //Déclaration + initialisation du double Age pour le calcul
-    //du temps écoulé entre Date Naissance et date du jour (le mktime convertit DateNaissance en secondes)
-    double Age=difftime(aujourdhui, birthday)/(365.25*24*3600);
+    //Age is a double type variable, created & initialised to save student age through a calculation...
+    double Age=difftime(aujourdhui, birthday)/(365.25*24*3600); //because of Leap year, a year is 365,25 days, a day is 24 hours & 1 hour is 3600 seconds
     Y->age=Age;
 
 }
 
 
-/*AFFICHE UN ELEVE*/
+/*Display Student features*/
 void AfficherEleve(Eleve_t E)
 {
+    //Display last name, first name & age
     printf("\nNom de l'eleve : %s\nPrenom de l'eleve :%s\nAge : %d",
             E.nomEleve, E.prenomEleve, E.age);
 
+    //Student Sex verification to display the true information
     if (E.sexe=='M')
         {
-        printf("\nSexe : Masculin");
+        printf("\nSexe : Masculin\n");
         }
     else
         {
-        printf("\nSexe : Féminin");
+        printf("\nSexe : Féminin\n");
         }
-
 
   	printf ("\nDate de naissance : %d/%d/%d\n", E.DateNaissance.tm_mday, 1 + E.DateNaissance.tm_mon, E.DateNaissance.tm_year);
 
     if (E.redoublant==1)
         {
-        printf("\nEleve redoublant");
+        printf("\nEleve redoublant\n");
         }
     else
         {
@@ -60,42 +61,46 @@ void AfficherEleve(Eleve_t E)
 }
 
 
-/*SAISIE UN ELEVE */
+/*Student features input*/
 void SaisirEleve(Eleve_t *E)
 {
+    //Last name student input
     printf("\nSaisissez le nom de l'eleve : ");
     fgets(E->nomEleve,NOMMAX,stdin);
 
+    //Fist name student input
     printf("Saisissez le prenom de l'eleve : ");
     fgets(E->prenomEleve,PRENOMMAX,stdin);
 
+    //Gender student input
     printf("Saisissez le Sexe de l'eleve (F / M) : ");
     scanf("%c",&E->sexe);
-    printf("%c", E->sexe);
+    getchar();
 
-
-    /*while(E->sexe!='F' || E->sexe!='M')
+    //Gender student input check
+    while((E->sexe!='F') && (E->sexe!='M'))
 	{
+		CLEAR(); //if wrong input, system console screen cleared before displaying new choice
 		printf("\nJe n'ai pas compris, veuillez re-saisir le sexe (F / M): ");
 		scanf("%c",&E->sexe);
 		getchar();
-	}*/
+	}
 
+    //Student school year repeat input
     printf("L'élève est-il redoublant ? (1 pour redoublant/ 0 pour non redoublant): ");
     scanf("%d",&E->redoublant);
+    getchar();
 
-    /*
-    while(E->redoublant!=1 || E->redoublant!=0)
+    //Check Student school year repeat input
+    while((E->redoublant!=1) && (E->redoublant!=0))
 	{
+		CLEAR(); //if wrong input, system console screen cleared before displaying new choice
 		printf("\nJe n'ai pas compris...\nL'élève est-il redoublant ? (1 pour redoublant/ 0 pour non redoublant): ");
-		scanf("%c",&E->sexe);
-		getchar();
-	} Ne fonctionne pas
-    */
+		scanf("%d",&E->redoublant);
+    }
 
+    //Input student birthday function call
     SaisirDate(E);
-
-
 }
 
 
