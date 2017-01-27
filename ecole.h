@@ -1,5 +1,11 @@
-
-
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@                                    @@
+@@       Saisie/Affichage Ecole       @@
+@@                                    @@
+@@        par Manuel  + groupe        @@
+@@         pour optimisation          @@
+@@                                    @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -12,6 +18,7 @@
 #define PRENOMMAX 20
 #define NOMMAXECOLE 50
 #define NOMCLASSE 5
+#define LIGNE 600
 #define RUEMAX 60
 #define VILLEMAX 30
 #define MAILMAX 50
@@ -35,7 +42,7 @@ struct Classe *tete;            //
 
 
 //Fonction Affichage Ecole
-void AfficherEcole(Ecole_t);
+void AfficherEcole(const char *nom_fichier, Ecole_t *Ec)
 
 
 //Fonction Saisie Ecole
