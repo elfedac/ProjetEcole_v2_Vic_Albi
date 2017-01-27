@@ -22,7 +22,7 @@
 #define LIGNE 600
 #define RUEMAX 60
 #define VILLEMAX 30
-#define TELMAX 14
+#define TELMAX 15
 #define MAILMAX 50
 #define CLEAR()     system("clear");
 
