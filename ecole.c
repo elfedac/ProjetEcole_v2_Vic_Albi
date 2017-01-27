@@ -96,12 +96,12 @@ fclose(ptr_fichierEcole);                        // fermeture du fichier .csv
 
 printf("\tNom de l'Etablissement : %s\n", Ec->nomEcole);
 printf("\tDirecteur de l'Etablissement: %s %s\n", Ec->nomDirecteur, Ec->prenomDirecteur);
-printf("\tAdresse\n");
+printf("\t\n------ Adresse ------");
 printf("\n\tRue: %s", Ec->AdresseEcole.rue);
 printf("\n\tCode Postal et Commune: %d %s", Ec->AdresseEcole.CodePostal, Ec->AdresseEcole.Ville);
 printf("\n\tTelephone Fixe: %s\n", Ec->AdresseEcole.TelMaison);
 printf("\tTelephone Mobile: %s\n", Ec->AdresseEcole.TelMobile);
-printf("\n\tAdresse mail: %s", Ec->AdresseEcole.Mail);
+printf("\tAdresse mail: %s", Ec->AdresseEcole.Mail);
 printf("\n\tNombre de classes: %s", Ec->nbclasse);
 }
 
