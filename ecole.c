@@ -70,42 +70,39 @@ void AfficherEcole(const char *nom_fichier, Ecole_t *Ec)
         champ=strtok(NULL, ";");                // mettre dans champ les éléments de ligne jusqu'au prochain ';'
         Ec->nbclasse=atoi(champ);               // on convertit le champ en un entier pour le nombre de classes
 
-        champ=strtok(ligne, ";");
+        champ=strtok(NULL, ";");
         strcpy(Ec->AdresseEcole.rue, champ);
 
         champ=strtok(NULL, ";");
         Ec->AdresseEcole.CodePostal=atoi(champ);
 
-        champ=strtok(ligne, ";");
+        champ=strtok(NULL, ";");
         strcpy(Ec->AdresseEcole.Ville, champ);
 
-        champ=strtok(ligne, ";");
+        champ=strtok(NULL, ";");
         strcpy(Ec->AdresseEcole.TelMaison, champ);
 
-        champ=strtok(ligne, ";");
+        champ=strtok(NULL, ";");
         strcpy(Ec->AdresseEcole.TelMobile, champ);
 
-        champ=strtok(ligne, ";");
+        champ=strtok(NULL, ";");
         strcpy(Ec->AdresseEcole.Mail, champ);
-
+               
     }
 
 fclose(ptr_fichierEcole);                        // fermeture du fichier .csv
-
+    
 //Instructions d'affichage des caractéristiques de l'Etablissement
 
-printf("Nom de l'Etablissement : ", Ec->nomEcole);
-printf("Directeur de l'Etablissement\n");
-printf("\tNom: ", Ec->nomDirecteur);
-printf("\n\tPrenom: ", Ec->prenomDirecteur);
-printf("\nRue: ", Ec->AdresseEcole.rue);
-printf("\nCode Postal: ", Ec->AdresseEcole.CodePostal);
-printf("\nVille: ", Ec->AdresseEcole.Ville);
-printf("\nVille: ", Ec->AdresseEcole.TelMaison);
-printf("\nVille: ", Ec->AdresseEcole.TelMobile);
-printf("\nVille: ", Ec->AdresseEcole.Mail);
-
-printf("\nNombre de classes: ", Ec->nbclasse);
+printf("\tNom de l'Etablissement : %s\n", Ec->nomEcole);
+printf("\tDirecteur de l'Etablissement: %s %s\n", Ec->nomDirecteur, Ec->prenomDirecteur);
+printf("\tAdresse\n");
+printf("\n\tRue: %s", Ec->AdresseEcole.rue);
+printf("\n\tCode Postal et Commune: %d %s", Ec->AdresseEcole.CodePostal, Ec->AdresseEcole.Ville);
+printf("\n\tTelephone Fixe: %s\n", Ec->AdresseEcole.TelMaison);
+printf("\tTelephone Mobile: %s\n", Ec->AdresseEcole.TelMobile);
+printf("\n\tAdresse mail: %s", Ec->AdresseEcole.Mail);
+printf("\n\tNombre de classes: %s", Ec->nbclasse);
 }
 
 
