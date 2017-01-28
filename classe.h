@@ -43,5 +43,7 @@ void ModifierEleve(Classe_t *C)
 
 //Input classroom function
 void SaisirClasse(Classe_t *C) 
+ 
+void SupprimerEleve(Classe_t *C)
 
 #endif
