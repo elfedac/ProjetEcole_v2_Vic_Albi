@@ -181,3 +181,42 @@ void ModifierEleve(Classe_t *C)
 	}while(verif!=1);
 }
 
+void SupprimerEleve(Classe_t *C)
+{
+	int choix;
+	char temp[25];
+	char nomSuppr[25];
+	char prenomSuppr[25];
+	int verif=0;
+	int i;
+	Classe_t *tete=C;
+	printf("Saisir le nom et le prenom de l'eleve a supprimer:\n");
+	scanf("%s %s",nomSuppr,prenomSuppr);
+	do
+	{
+		for(i=0;i<NBRELEVE;i++)
+		{
+			if((strcmp(nomSuppr,C->TabEleve[i].nomEleve)==0) && (strcmp(prenomSuppr,C->TabEleve[i].prenomEleve)==0))
+			{
+				printf("Eleve trouvé dans le classe %s\n",C->NomClasse);
+				for(i=0;i<C.nbEleve;i++)
+				{
+					strcpy(C->TabEleve[i].prenomEleve,C->TabEleve[i+1].prenomEleve);
+					strcpy(C->TabEleve[i].nomEleve,C->TabEleve[i+1].nomEleve);
+					strcpy(C->TabEleve[i].sexe,C->TabEleve[i+1].sexe);
+					C->TabEleve[i].redoublant=C->TabEleve[i+1].redoublant
+					C->TabEleve[i].DateNaissance.tm_mday=C->TabEleve[i+1].DateNaissance.tm_mday;
+					C->TabEleve[i].DateNaissance.tm_mon=C->TabEleve[i+1].DateNaissance.tm_mon;
+					C->TabEleve[i].DateNaissance.tm_year=C->TabEleve[i+1].DateNaissance.tm_year;
+					
+				}
+				verif=1;
+				break;
+			}
+			else
+				C=C->suivant;
+		}
+	}while(verif!=1);
+	C->nbEleve=C->nbEleve-1;
+}
+
