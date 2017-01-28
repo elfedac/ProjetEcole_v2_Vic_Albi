@@ -34,6 +34,27 @@ void AfficherClasse(Classe_t *C)
 	}
 }
 
+void SaisirClasse(Classe_t *C)             
+{
+	char fini[3]={"non"};
+	int i=0;
+	Classe_t *tete=C;
+	do
+	{
+		printf("Nom et prenom du professeur: \n");
+		scanf("%s %s", C->Prof.nomProf,C->Prof.prenomProf);
+		printf("Nom de la classe: \n");
+		scanf("%s", C->NomClasse);
+		printf("Niveau de la classe:\n");
+		scanf("%s",C->niveau);
+
+		for(i=0;i<NBRELEVE;i++)
+		{
+			SaisirEleve(&C->TabEleve[i]);
+		}
+	}while(fini=="oui");
+}
+
 void CreationClasse(Classe_t **C)
 {
 	int i;
@@ -92,8 +113,7 @@ void AjouterClasse(Classe_t **C)
         perror("Allocation failed :");
         return;
     }
-    printf("saisir le nom et le niveau de la classe (separer par un espace):\n");
-    scanf("%s %s",nouvelle->NomClasse,nouvelle->niveau);
+    SaisirClasse(&C);
     while(courant != NULL && strcmp (courant->niveau, nouvelle->niveau) != 0)
     {
 		avant = courant;            // le courant devient précédent
@@ -160,5 +180,4 @@ void ModifierEleve(Classe_t *C)
 		}
 	}while(verif!=1);
 }
-
 
