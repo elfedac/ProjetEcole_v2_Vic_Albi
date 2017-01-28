@@ -4,19 +4,12 @@
 #include "eleve.h"
 #include "prof.h"
 #include "ecole.h"
+#include "adresse.h"
 
 #define NOMCLASSE 5
 #define NBRELEVE 25
 #define NOMMAX 25
 #define PRENOMMAX 25
-
-//structure pour l'enseignant
-typedef struct prof
-{
-char nomProf[NOMMAX];           //
-char prenomProf[PRENOMMAX];     //
-Adresse_t AdresseProf;          //
-}Prof_t; 
 
 //Recursive structure classroom
 typedef struct Classe
@@ -40,5 +33,8 @@ void AjouterClasse(Classe_t **C);
  
 //
 void ModifierEleve(Classe_t *C)
+
+//Input classroom function
+void SaisirClasse(Classe_t *C) 
 
 #endif
