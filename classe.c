@@ -89,7 +89,7 @@ void AjouterClasse(Classe_t **C)
     nouvelle = (Classe_t*)malloc(sizeof(Classe_t)); // initialisation de nouveau
     if(nouvelle==NULL) // si l'allocation se passe mal
     {
-        perror("pas possible");
+        perror("Allocation failed :");
         return;
     }
     printf("saisir le nom et le niveau de la classe (separer par un espace):\n");
