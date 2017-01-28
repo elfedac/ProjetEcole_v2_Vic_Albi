@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "eleve.h"
-#include "prof.h"
 #include "ecole.h"
 #include "adresse.h"
 
@@ -10,6 +9,14 @@
 #define NBRELEVE 25
 #define NOMMAX 25
 #define PRENOMMAX 25
+
+//structure pour l'enseignant
+typedef struct prof
+{
+char nomProf[NOMMAX];           //
+char prenomProf[PRENOMMAX];     //
+Adresse_t AdresseProf;          //
+}Prof_t; 
 
 //Recursive structure classroom
 typedef struct Classe
