@@ -80,7 +80,7 @@ int main()
 
 	Classe_t ClasseTemp={0};
 
-    InitialiserClasse(&ClasseTemp);
+    //InitialiserClasse(&ClasseTemp);
 
 }
 
@@ -230,13 +230,13 @@ void SaisirEleve(Eleve_t *E)
 
         }
 
-
 fclose(ptr_fichierEleve);                                   // fermeture du fichier .csv
+
 }
 
 
 
-
+//Fonction pour déterminer dans quelle classe inscrire l'eleve
 void TrouverNiveau (Eleve_t E, char *Niveau[5])
 {
 
@@ -424,8 +424,66 @@ void InitialiserClasse(Classe_t **C)
 }
 
 
-/* fonction auxiliaire permuter deux éléments du tableau */
-void PermuterEleve(int nbeleve) //Tri par permutation
+//Fonction qui affecte des élèves dans Classe à partir d'un fichier .csv qui se nomme ici "fichier_eleve_cole.csv"
+void RemplirClasse(Classe_t *Classe)
+{
+
+    //Déclaration des variables pour récupérer les informations sauvegardées dans le fichier .csv
+    char ligne[LIGNE];    //chaîne temporaire contenant les lignes du fichier (une a une)
+    char *champ;          //
+    int i=0;
+
+    FILE *ptr_fichierEleveClasse; // création d'un pointeur FILE
+
+    ptr_fichierEleveClasse=fopen("RemplirClasse.csv", "r"); // ouverture du fichier en lecture
+
+    if(!ptr_fichierEleveClasse) // si l'ouverture se passe mal
+    {
+        perror("erreur ouverture du fichier");
+        exit(EXIT_FAILURE);
+    }
+    else
+    {
+        for (i=0; i<10; i++)
+        {
+
+        fgets(ligne, LIGNE, ptr_fichierEleveClasse);      // lecture ligne
+
+        champ=strtok(ligne, ";");                         // mettre dans champ les éléments de ligne jusqu'au prochain ';'
+        strcpy(Classe->TabEleve[i].nomEleve, champ);      // copie champ dans le nom de l'eleve
+
+        champ=strtok(NULL, ";");                          // mettre dans champ les éléments de ligne jusqu'au prochain ';'
+        strcpy(Classe->TabEleve[i].prenomEleve, champ);   // copie champ dans le prenom de l'eleve
+
+        champ=strtok(NULL, ";");                          // mettre dans champ les éléments de ligne jusqu'au prochain ';'
+        Classe->TabEleve[i].sexe=atoi(champ);                   // copie champ dans le genre de l'eleve
+
+        champ=strtok(NULL, ";");                                //
+        Classe->TabEleve[i].DateNaissance.tm_mday=atoi(champ);  //
+
+        champ=strtok(NULL, ";");                                //
+        Classe->TabEleve[i].DateNaissance.tm_mon=atoi(champ);   //
+
+        champ=strtok(NULL, ";");                                //
+        Classe->TabEleve[i].DateNaissance.tm_year=atoi(champ);  //
+
+        champ=strtok(NULL, ";");
+        Classe->TabEleve[i].age=atoi(champ);
+
+        champ=strtok(NULL, ";");
+        Classe->TabEleve[i].redoublant=atoi(champ);
+
+        }
+    }
+
+fclose(ptr_fichierEleveClasse);                        // fermeture du fichier .csv
+
+}
+
+
+
+/*  fonction auxiliaire permuter deux éléments du tableau */
+void TrierEleve(int nbeleve) //Tri par permutation
 {
     //déclaration d'une structure eleve tampon
     Eleve_t EleveTemp;
@@ -436,7 +494,7 @@ void PermuterEleve(int nbeleve) //Tri par permutation
 	for (i=0; i<nbeleve-1; i++)
 		for(j=i; j<nbeleve; j++)
 		{
-		    if (strcmp(MaClasse[i].nom,MaClasse[j].nom)>0)
+		    if (strcmp(TabEleve[i].nom, TabEleve[j].nom)>0)
             {
                 //stockage de tous les champs dans la structure Eleve tampon
                 strcpy(EleveTemp.nomEleve, debut.TabEleve[i].nomEleve);
