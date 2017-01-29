@@ -63,6 +63,8 @@ void InitialiserClasse(Classe_t **C);
 
 void AjouterClasse(Classe_t **C);
 
+void PermuterEleve(int nbeleve);
+
 void ModifierEleve(Classe_t *C);
 
 
@@ -233,24 +235,6 @@ fclose(ptr_fichierEleve);                                   // fermeture du fich
 }
 
 
-
-
-/*
-
-//Appel fonction saisie Eleve
-     SaisirEleve(&EleveTemp);
-
-     strcpy(nouvelleClasse->TabEleve[1].nomEleve, EleveTemp.nomEleve);
-     strcpy(nouvelleClasse->TabEleve[1].prenomEleve, EleveTemp.prenomEleve);
-     strcpy(&nouvelleClasse->TabEleve[1].sexe, &EleveTemp.sexe);
-     nouvelleClasse->TabEleve[1].age=EleveTemp.age;
-     nouvelleClasse->TabEleve[1].redoublant=EleveTemp.redoublant;
-     nouvelleClasse->TabEleve[1].DateNaissance.tm_mday=EleveTemp.DateNaissance.tm_mday;
-     nouvelleClasse->TabEleve[1].DateNaissance.tm_mon=EleveTemp.DateNaissance.tm_mon;
-     nouvelleClasse->TabEleve[1].DateNaissance.tm_year=EleveTemp.DateNaissance.tm_year;
-
-     //Appel fonction Affichage Eleve pour verification/Test
-     AfficherEleve(nouvelleClasse->TabEleve[1]);*/
 
 
 void TrouverNiveau (Eleve_t E, char *Niveau[5])
@@ -438,6 +422,55 @@ void InitialiserClasse(Classe_t **C)
         }
     }
 }
+
+
+/* fonction auxiliaire permuter deux éléments du tableau */
+void PermuterEleve(int nbeleve) //Tri par permutation
+{
+    //déclaration d'une structure eleve tampon
+    Eleve_t EleveTemp;
+
+    //création deux boucles de compteur
+    int i,j;
+
+	for (i=0; i<nbeleve-1; i++)
+		for(j=i; j<nbeleve; j++)
+		{
+		    if (strcmp(MaClasse[i].nom,MaClasse[j].nom)>0)
+            {
+                //stockage de tous les champs dans la structure Eleve tampon
+                strcpy(EleveTemp.nomEleve, debut.TabEleve[i].nomEleve);
+                strcpy(EleveTemp.prenomEleve, debut.TabEleve[i].prenomEleve);
+                strcpy(EleveTemp.sexe, debut.TabEleve[i].sexe);
+                EleveTemp.DateNaissance.tm_mday=debut.TabEleve[i].DateNaissance.tm_mday;
+                EleveTemp.DateNaissance.tm_mon=debut.TabEleve[i].DateNaissance.tm_mon;
+                EleveTemp.DateNaissance.tm_year=debut.TabEleve[i].DateNaissance.tm_year;
+                EleveTemp.age=debut.TabEleve[i].age;
+                EleveTemp.redoublant=debut.TabEleve[i].redoublant;
+
+                //Copie de la structure Eleve TabEleve[j] vers la structure Eleve de TabEleve[i]
+                strcpy(debut.TabEleve[i].nomEleve, debut.TabEleve[j].nomEleve);
+                strcpy(debut.TabEleve[i].prenomEleve, debut.TabEleve[j].prenomEleve);
+                strcpy(debut.TabEleve[i].sexe, debut.TabEleve[j].sexe);
+                debut.TabEleve[i].DateNaissance.tm_mday=debut.TabEleve[j].DateNaissance.tm_mday;
+                debut.TabEleve[i].DateNaissance.tm_mon=debut.TabEleve[j].DateNaissance.tm_mon;
+                debut.TabEleve[i].DateNaissance.tm_year=debut.TabEleve[j].DateNaissance.tm_year;
+                debut.TabEleve[i].age=debut.TabEleve[j].age;
+                debut.TabEleve[i].redoublant=debut.TabEleve[j].redoublant;
+
+                //Copie de la structure Eleve Tampon vers la structure Eleve TabEleve[j]
+                strcpy(debut.TabEleve[j].nomEleve, EleveTemp.nomEleve);
+                strcpy(debut.TabEleve[j].prenomEleve, EleveTemp.prenomEleve);
+                strcpy(debut.TabEleve[j].sexe, EleveTemp.sexe);
+                debut.TabEleve[j].DateNaissance.tm_mday=EleveTemp.DateNaissance.tm_mday;
+                debut.TabEleve[j].DateNaissance.tm_mon=EleveTemp.DateNaissance.tm_mon;
+                debut.TabEleve[j].DateNaissance.tm_year=EleveTemp.DateNaissance.tm_year;
+                debut.TabEleve[j].age=EleveTemp.age;
+                debut.TabEleve[j].redoublant=EleveTemp.redoublant;
+            }
+
+}
+
 
 
 //Fonction modifier Eleve
