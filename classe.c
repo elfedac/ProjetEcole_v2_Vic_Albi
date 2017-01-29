@@ -1,6 +1,6 @@
 //*****************************************************************//
-//***           Folder eleve.c and eleve.h                     ***//
-//***              by Adrien et Lenny                          ***//
+//***           eleve.c and eleve.h files                       ***//
+//***              by Adrien et Lenny                           ***//
 //*****************************************************************//
 
 #include <stdio.h>
@@ -8,7 +8,7 @@
 
 #include "classe.h"
 
-//Classroom display function
+// This function displays the classrooms on the screen
 void AfficherClasse(Classe_t *C,int taille)
 {
 	char choix[3];
@@ -16,10 +16,10 @@ void AfficherClasse(Classe_t *C,int taille)
 	Classe_t *niveau=C;
 	printf("Quelle classe voulez vous afficher?");
 	scanf("%s",choix);
-	//We use "while" function for select next class
+	//We use a "while" function to select next classroom
 	while(C->niveau!=choix)
 	{
-		C=C->suivant;//we select next class
+		C=C->suivant;//we select the next classroom
 	}
 	printf("Nom de la classe:\t%s\nProfesseur:\t%s %s\n",C.NomClasse,C.Prof.nomProf,C.Prof.prenomProf);
 	printf("Liste des eleves:\n");
@@ -29,7 +29,7 @@ void AfficherClasse(Classe_t *C,int taille)
 	}
 }
 
-//Classroom input function
+//This function is used to create classrooms
 void SaisirClasse(Classe_t *C,int taille)
 {
 	int i=0;
