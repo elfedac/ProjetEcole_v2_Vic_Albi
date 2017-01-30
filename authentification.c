@@ -12,12 +12,12 @@ char utilisateur[20];                       //to store the username just entered
 char motDePasse[10];                        //to store the password just entered
 int  tentative=0;                           //to count how many wrong entries were input
 char ligneLueDansFichierSecret[300];        //to store what was returned by the fgets() function
-char *champ;                                //a pointer upon the "champ" variable, of char type
-char tab[NBUTILISATEURS][25];               //pour stocker les paires nom d'utilisateur/mot de passe lues dans "fichier_secret.txt"/to save the pairs username/password readen from the "fichier_secret.txt" file
+char *champ;                                //a pointer to the "champ" variable, of char type
+char tab[NBUTILISATEURS][25];               //to store the username/password pairs readen from the "fichier_secret.txt" file (hiden file)
 int i=0;
 int j=0;
 
-FILE *ptr_fichierSecret;                    // initializing an object of the type FILE with a pointer on it
+FILE *ptr_fichierSecret;                    // initializing an object type FILE with a pointer to it
 
     do                                      // this do-while loop will be repeated 3 times if the entries are wrong
     {
@@ -26,20 +26,20 @@ FILE *ptr_fichierSecret;                    // initializing an object of the typ
     printf("Entrez votre mot de passe fourni: ");
     scanf("%s",motDePasse);
 
-    ptr_fichierSecret = fopen("fichier_secret.txt", "r"); // opening of "ficher_secret.txt" on "read" mode
+    ptr_fichierSecret = fopen("fichier_secret.txt", "r"); // opening of "fichier_secret.txt" on "read" mode
 
-    if(!ptr_fichierSecret)                              // in case the opening went wrong a message is sent
+    if(!ptr_fichierSecret)                              // in case the opening would fail, a message is sent
     {
         perror("erreur ouverture du fichier");
         exit(EXIT_FAILURE);
     }
 
     fgets(ligneLueDansFichierSecret, 200, ptr_fichierSecret); //to read the one and sole line, as each username and password are following themselves, just seperated with a semicolon.
-    fclose(ptr_fichierSecret);                          // we close the file which was opened earlier
+    fclose(ptr_fichierSecret);                          // we close the file opened earlier
 
-    champ=strtok(ligneLueDansFichierSecret, ";");       // we "slice" the line until the firs semicolon
+    champ=strtok(ligneLueDansFichierSecret, ";");       // we "slice" the line until the first semicolon
 
-    while(champ != NULL)                            // and we go on "slicing" the line until we get "NULL". Each slice is put into the 2D char array named "tab"
+    while(champ != NULL)                            // and we go on "slicing" until we get "NULL". Each slice is put into the 2D char array named "tab"
     strcpy(tab[j],champ);
     champ=strtok(NULL, ";");
     j++;
@@ -50,14 +50,14 @@ FILE *ptr_fichierSecret;                    // initializing an object of the typ
             {
                 printf("Acces autorise\n");
                 tentative = NBTENTATIVEMAX;
-                //Menu(Ec);                         // this is used to go to the menu
+                //Menu(Ec);                         // used to go to the menu
             }
             else
             {
                 i++;
             }
         }
-        tentative ++;                               // is incremented by 1 for each wrong user'input
+        tentative ++;                               // is incremented by 1 for each wrong user's input
         printf("Acces non autorise!\n");
     }while(tentative<NBTENTATIVEMAX);
  return(0);
