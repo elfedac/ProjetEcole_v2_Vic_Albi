@@ -83,11 +83,23 @@ void SaisirEleve(Eleve_t *E)
     fgets(E->nomEleve,NOMMAX,stdin);
     E->nomEleve[strlen(E->nomEleve)-1]='\0';          //'\n' removal from string nomEleve
 
+    //uppercase the last name student
+    for(i=0; i<strlen(E->nomEleve); i++)
+    {
+    	E->nomEleve[i]=toupper(E->nomEleve[i]);
+    }
+	
     //Fist name student input
     printf("\nSaisissez le prenom de l'eleve: ");
     fgets(E->prenomEleve,PRENOMMAX,stdin);
     E->prenomEleve[strlen(E->prenomEleve)-1]='\0';    //'\n' removal from string prenomEleve
 
+    //lowercase the student first name
+    for (i=0; i<strlen(E->prenomEleve); i++)
+    {
+    	E->prenomEleve[i]=tolower(E->prenomEleve[i]);
+    }	
+	
     //Input student birthday function call
     SaisirDate(E);
 
