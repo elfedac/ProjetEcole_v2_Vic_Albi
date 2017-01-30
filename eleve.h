@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include <ctype.h>
 #include<time.h>
 
 #ifndef ELEVE_H
@@ -26,16 +27,22 @@ typedef struct Eleve
 }Eleve_t;
 
 
-/* AFFICHE LA DATE DE NAISSENCE D'UN ELEVE + SON AGE */
+//Display Student birthday & age
 void AfficherDate(Eleve_t y);
 
-/* SAISIE LA DATE DE NAISSENCE D'UN ELEVE */
+//Student birthday imput
 void SaisirDate(Eleve_t *y);
 
-/* AFFICHE UN ELEVE */
+//Display student informations
 void AfficherEleve(Eleve_t E);
 
-/* SAISIE UN ELELVE */
+//Student imput
 void SaisirEleve(Eleve_t *E);
+
+//Find Student Academic level
+void TrouverNiveau (Eleve_t E, char *Niveau);
+
+//Class Student Assignment
+int AffecterEleve(Eleve_t E, Classe_t *ClasseAffectation, const char *Niveau);
 
 #endif // ELEVE_H
