@@ -99,7 +99,7 @@ printf("########################################################################
 printf("######                       Gestion des Classes                        ######\n");
 printf("######                                                                  ######\n");
 printf("######                     1 : Saisir une classe                        ######\n");
-printf("######                     2 : Modifier une classe                      ######\n");
+printf("######                     2 : Ajouter une classe                       ######\n");
 printf("######                     3 : Afficher une classe                      ######\n");
 printf("######                     4 : Retour Menu Principal                    ######\n");
 printf("######                                                                  ######\n");
@@ -171,6 +171,7 @@ switch (choix)
         case 4:
                 CLEAR();
                 MenuPrincipal()
+                break;
 
 		default :
                 printf("Mauvaise saisie, recommencez...");
@@ -192,20 +193,27 @@ while (((selection < 1) && (selection >4))
 switch (choix)
 	{
 		case 1:
-                SaisirEcole(Ecole_t *Ec)
+                CLEAR();
+                SaisirEcole(Ecole_t *Ec);
+                MenuEtablissement();
                 break;
 
 		case 2:
-                SaisirEcole(Ecole_t *Ec)
+                CLEAR();
+                SaisirEcole(Ecole_t *Ec);
+                MenuEtablissement();
                 break;
 
 		case 3:
-                AfficherEcole(Ecole_t Ec)
+                CLEAR();
+                AfficherEcole(Ecole_t Ec);
+                MenuEtablissement();
                 break;
 
         case 4 :
                 CLEAR();
                 MenuPrincipal();
+                break;
 
 		default :
                 printf("Mauvaise saisie, recommencez...");
@@ -227,20 +235,27 @@ while (((selection < 1) && (selection >4))
 switch (choix)
 	{
 		case 1:
-
+                CLEAR();
+                SaisirClasse(Classe_t *C);
+                MenuClasse();
                 break;
 
 		case 2:
-
+                CLEAR();
+                AjouterClasse(Classe_t **C);
+                MenuClasse();
                 break;
 
 		case 3:
-
+                CLEAR();
+                AfficherClasse(Classe_t *C);
+                MenuClasse();
                 break;
 
         case 4 :
                 CLEAR();
                 MenuPrincipal();
+                break;
 
 		default :
                 printf("Mauvaise saisie, recommencez...");
@@ -262,11 +277,15 @@ while (((selection < 1) && (selection >6))
 switch (choix)
 	{
 		case 1:
-
+                CLEAR();
+                SaisirEleve(Eleve_t *E);
+                MenuEleve();
                 break;
 
 		case 2:
-
+                CLEAR();
+                ModifierEleve(Classe_t *C);
+                MenuEleve();
                 break;
 
 		case 3:
@@ -274,16 +293,21 @@ switch (choix)
                 break;
 
         case 4:
-
+                CLEAR();
+                SupprimerEleve(Classe_t *C);
+                MenuEleve();
                 break;
 
         case 5:
-
+                CLEAR();
+                AfficherEleve(Eleve_t E);
+                MenuEleve();
                 break;
 
         case 6 :
                 CLEAR();
                 MenuPrincipal();
+                break;
 
 		default :
                 printf("Mauvaise saisie, recommencez...");
