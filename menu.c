@@ -51,7 +51,7 @@ switch (choix)
 }
 
 
-void menuPrincipal()
+void MenuPrincipal()
 {
 
 printf("                                                                              \n");
@@ -83,3 +83,126 @@ choixMenuPrincipal();
 }
 
 
+void MenuEtablissement()
+{
+printf("
+printf("                                                                              \n");
+printf("      ###           #######       ###      ###     #######                    \n");
+printf("      ###           ########      #####    ###     ########                   \n");
+printf("      ###           ###    ##     #####    ###     ###    ##                  \n");
+printf("      ###           ###    ##     ###  ##  ###     ###    ##                  \n");
+printf("      ###           ###    ##     ###  ##  ###     ########                   \n");
+printf("      ###           ###    ##     ###    #####     ###   ###                  \n");
+printf("      ######### ### ########  ### ###    ##### ### ###    ###  ###            \n");
+printf("      ######### ### #######   ### ###     #### ### ###     ### ###            \n");
+printf("                                                                              \n");
+printf("                                                                              \n");
+printf("##############################################################################\n");
+printf("######                    Gestion de l'Etablissement                    ######\n");
+printf("######                                                                  ######\n");
+printf("######                     1 : Renseigner Etablissement                 ######\n");
+printf("######                     2 : Modifier Etablissement                   ######\n");
+printf("######                     3 : Afficher Etablissement                   ######\n");
+printf("######                     4 : Retour Menu Principal                    ######\n");
+printf("######                                                                  ######\n");
+printf("##############################################################################\n");
+
+choixMenuEtablissement();
+}
+
+void MenuClasse()
+{
+
+
+
+printf("                                                                              \n");
+printf("##############################################################################\n");
+printf("######                       Gestion des Classes                        ######\n");
+printf("######                                                                  ######\n");
+printf("######                     1 : Saisir une classe                        ######\n");
+printf("######                     2 : Modifier une classe                      ######\n");
+printf("######                     3 : Afficher une classe                      ######\n");
+printf("######                     4 : Retour Menu Principal                    ######\n");
+printf("######                                                                  ######\n");
+printf("##############################################################################\n");
+
+choixMenuClasse();
+
+}
+
+
+void MenuEleve()
+{
+
+
+
+
+
+
+printf("                                                                              \n");
+printf("##############################################################################\n");
+printf("######                       Gestion des Eleves                         ######\n");
+printf("######                                                                  ######\n");
+printf("######                     1 : Saisir un Eleve                          ######\n");
+printf("######                     2 : Modifier un Eleve                        ######\n");
+printf("######                     3 : Permuter un Eleve                        ######\n");
+printf("######                     4 : Supprimer un Eleve                       ######\n");
+printf("######                     5 : Afficher un Eleve                        ######\n");
+printf("######                     6 : Retour Menu Principal                    ######\n");
+printf("######                                                                  ######\n");
+printf("##############################################################################\n");
+
+ChoixMenuEleve();
+}
+
+
+
+choixMenuPrincipal()
+{
+int choix=0;
+
+printf("\nMerci de saisir votre choix svp: ");
+scanf("%d", &choix);
+getchar();
+
+switch (choix)
+	{
+		case 1:
+                SaisirEcole(Ecole_t *Ec)
+                break;
+
+		case 2:
+
+                break;
+
+		case 3:
+
+                break;
+
+		default :
+                    printf("Mauvaise saisie, recommencez\n");
+                    CLEAR();
+                    MenuPrincipal();
+
+	}
+
+
+}
+
+
+choixMenuEtablissement()
+{
+
+}
+
+
+choixMenuClasse()
+{
+
+}
+
+
+ChoixMenuEleve()
+{
+
+}
