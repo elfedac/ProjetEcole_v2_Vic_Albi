@@ -140,6 +140,65 @@ ChoixMenuEleve();
 }
 
 
+AuRevoir()
+{
+
+printf("                                 .:AMMO:                                    ");
+printf("                        .:AMMMMMHIIIHMMM.                                   ");
+printf("              ....   .AMMMMMMMMMMMHHHMHHMMMML:AMF"                          ");
+printf("            .:MMMMMLAMMMMMMMHMMMMMMHHIHHIIIHMMMML.                          ");
+printf("                 "WMMMMMMMMMMMMMMMMMMH:::::HMMMMMMHII:.                     ");
+printf("            .AMMMMMMMHHHMMMMMMMMMMHHHHHMMMMMMMMMAMMMHHHHL.                  ");
+printf("          .MMMMMMMMMMHHMMMMMMMMHHHHMMMMMMMMMMMMMHTWMHHHHHML                 ");
+printf("         .MMMMMMMMMMMMMMMMMMMHHHHHHHHHMHMMHHHHIII:::HMHHHHMM.               ");
+printf("         .MMMMMMMMMMMMMMMMMMMMMMHHHHHHMHHHHHHIIIIIIIIHMHHHHHM.              ");
+printf("         MMMMMMMMMMMMMMMMMHHMMHHHHHIIIHHH::IIHHII:::::IHHHHHHHL             ");
+printf("         "MMMMMMMMMMMMMMMMHIIIHMMMMHHIIHHLI::IIHHHHIIIHHHHHHHHML            ");
+printf("          .MMMMMMMMMMMMMM"WMMMHHHMMMMMMMMMMMLHHHMMMMMMHHHHHHHHHHH           ");
+printf("         .MMMMMMMMMMMWWMW   ""YYHMMMMMMMMMMMMF""HMMMMMMMMMHHHHHHHH.         ");
+printf("        .MMMMMMMMMM W" V                         W"WMMMMMHHHHHHHHHH         ");
+printf("       "MMMMMMMMMM".                                 "WHHHMH"HHHHHHL        ");
+printf("       MMMMMMMMMMF  .                                         IHHHHH.       ");
+printf("       MMMMMMMMMM .                                  .        HHHHHHH       ");
+printf("       MMMMMMMMMF. .                               .  .       HHHHHHH.      ");
+printf("       MMMMMMMMM .     ,AWMMMMML.              ..    .  .     HHHHHHH.      ");
+printf("     :MMMMMMMMM".  .  F"'    'WM:.         ,::HMMA, .  .      HHHHMMM       ");
+printf("     :MMMMMMMMF.  . ."         WH..      AMM"'     "  .  .    HHHMMMM       ");
+printf("      MMMMMMMM . .     ,;AAAHHWL"..     .:'                   HHHHHHH       ");
+printf("      MMMMMMM:. . .   -MK"OTO L :I..    ...:HMA-.             "HHHHHH       ");
+printf(" ,:IIIILTMMMMI::.      L,,,,.  ::I..    .. K"OTO"ML           'HHHHHH       ");
+printf(" LHT::LIIIIMMI::. .      '""'.IHH:..    .. :.,,,,           '  HMMMH: HLI'  ");
+printf(" ILTT::"IIITMII::.  .         .IIII.     . '""""             ' MMMFT:::.    ");
+printf(" HML:::WMIINMHI:::.. .          .:I.     .   . .  .        '  .M"'.....I.   ");
+printf(" "HWHINWI:.'.HHII::..          .HHI     .II.    .  .      . . :M.',, ..I:   ");
+printf(" "MLI"ML': :HHII::...        MMHHL     :::::  . :..      .'.'.'HHTML.II:    ");
+printf("   "MMLIHHWL:IHHII::....:I:" :MHHWHI:...:W,,"  '':::.      ..'  ":.HH:II:   ");
+printf("     "MMMHITIIHHH:::::IWF"    """T99"'  '""    '.':II:..'.'..'  I'.HHIHI'   ");
+printf("       YMMHII:IHHHH:::IT..     . .   ...  . .    ''THHI::.'.' .;H.""."H"    ");
+printf("         HHII:MHHI"::IWWL     . .     .    .  .     HH"HHHIIHHH":HWWM"      ");
+printf("          """ MMHI::HY""ML,          ...     . ..  :"  :HIIIIIILTMH"        ");
+printf("               MMHI:.'    'HL,,,,,,,,..,,,......,:" . ''::HH "HWW           ");
+printf("               'MMH:..   . 'MMML,: """MM""""MMM"      .'.IH'"MH"            ");
+printf("                "MMHL..   .. "MMMMMML,MM,HMMMF    .   .IHM"                 ");
+printf("                  "MMHHL    .. "MMMMMMMMMMMM"  . .  '.IHF'                  ");
+printf("                    'MMMML    .. "MMMMMMMM"  .     .'HMF                    ");
+printf("                     HHHMML.                    .'MMF"                      ");
+printf("                    IHHHHHMML.               .'HMF"                         ");
+printf("                    HHHHHHITMML.           .'IF..                           ");
+printf("                    "HHHHHHIITML,.       ..:F...                            ");
+printf("                     'HHHHHHHHHMMWWWWWW::"......                            ");
+printf("     AU                HHHHHHHMMMMMMF"'........                             ");
+printf("                        HHHHHHHHHH............                              ");
+printf("     REVOIR               HHHHHHHH...........                               ");
+printf("                           HHHHIII..........                                ");
+printf("     ...                    HHIII..........                                 ");
+printf("                             HII.........                                   ");
+printf("                              "H........                                    ");
+printf("                                ......                                      ");
+
+}
+
+
 
 choixMenuPrincipal()
 {
@@ -170,7 +229,7 @@ switch (choix)
 
         case 4:
                 CLEAR();
-                MenuPrincipal()
+                AuRevoir();
                 break;
 
 		default :
