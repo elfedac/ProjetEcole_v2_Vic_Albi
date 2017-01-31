@@ -127,6 +127,54 @@ void AjouterClasse(Classe_t **C)
         *C = nouvelle; // sinon affecter nouveau en tête de liste
 }
 
+/*  fonction auxiliaire permuter deux éléments du tableau (Manuel)*/
+void TrierEleve(Classe_t *Classe, int nbeleve) //Tri par permutation
+{
+    //déclaration d'une structure eleve tampon
+    Eleve_t EleveTemp;
+
+    //création deux boucles de compteur
+    int i,j;
+
+	for (i=0; i<Classe->nbElevenbeleve-1; i++)
+		for(j=i; j<Classe->nbEleve; j++)
+		{
+		    if (strcmp(TabEleve[i].nom, TabEleve[j].nom)>0)
+            {
+                //stockage de tous les champs dans la structure Eleve tampon
+                strcpy(EleveTemp.nomEleve, Classe.TabEleve[i].nomEleve);
+                strcpy(EleveTemp.prenomEleve, Classe.TabEleve[i].prenomEleve);
+                strcpy(EleveTemp.sexe, Classe.TabEleve[i].sexe);
+                EleveTemp.DateNaissance.tm_mday=Classe.TabEleve[i].DateNaissance.tm_mday;
+                EleveTemp.DateNaissance.tm_mon=Classe.TabEleve[i].DateNaissance.tm_mon;
+                EleveTemp.DateNaissance.tm_year=Classe.TabEleve[i].DateNaissance.tm_year;
+                EleveTemp.age=Classe.TabEleve[i].age;
+                EleveTemp.redoublant=Classe.TabEleve[i].redoublant;
+
+                //Copie de la structure Eleve TabEleve[j] vers la structure Eleve de TabEleve[i]
+                strcpy(Classe.TabEleve[i].nomEleve, Classe.TabEleve[j].nomEleve);
+                strcpy(Classe.TabEleve[i].prenomEleve, Classe.TabEleve[j].prenomEleve);
+                strcpy(Classe.TabEleve[i].sexe, Classe.TabEleve[j].sexe);
+                Classe.TabEleve[i].DateNaissance.tm_mday=Classe.TabEleve[j].DateNaissance.tm_mday;
+                Classe.TabEleve[i].DateNaissance.tm_mon=Classe.TabEleve[j].DateNaissance.tm_mon;
+                Classe.TabEleve[i].DateNaissance.tm_year=Classe.TabEleve[j].DateNaissance.tm_year;
+                Classe.TabEleve[i].age=Classe.TabEleve[j].age;
+                Classe.TabEleve[i].redoublant=Classe.TabEleve[j].redoublant;
+
+                //Copie de la structure Eleve Tampon vers la structure Eleve TabEleve[j]
+                strcpy(Classe.TabEleve[j].nomEleve, EleveTemp.nomEleve);
+                strcpy(Classe.TabEleve[j].prenomEleve, EleveTemp.prenomEleve);
+                strcpy(Classe.TabEleve[j].sexe, EleveTemp.sexe);
+                Classe.TabEleve[j].DateNaissance.tm_mday=EleveTemp.DateNaissance.tm_mday;
+                Classe.TabEleve[j].DateNaissance.tm_mon=EleveTemp.DateNaissance.tm_mon;
+                Classe.TabEleve[j].DateNaissance.tm_year=EleveTemp.DateNaissance.tm_year;
+                Classe.TabEleve[j].age=EleveTemp.age;
+                Classe.TabEleve[j].redoublant=EleveTemp.redoublant;
+            }
+
+}
+
+
 void ModifierEleve(Classe_t *C)
 {
 	int choix;
