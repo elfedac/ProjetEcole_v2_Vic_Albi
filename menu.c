@@ -13,43 +13,11 @@ void menuPrincipal();
 int main()
 {
 
-menuPrincipal();
+MenuPrincipal();
 
 }
 
-
-void choixMenuPrincipal()
-{
-int choix=0;
-printf("\n\t\t\tVotre choix svp: ");
-
-scanf("%d", &choix);
-getchar();
-
-switch (choix)
-    {
-        case 1:
-            //MenuEtablissement();
-            break;
-        case 2:
-            //MenuClasse();
-            break;
-        case 3:
-            //MenuEleve();
-            printf("Choix 3");
-            break;
-        case 4:
-            CLEAR();
-            printf("\n\t\tAu revoir et à bientôt...");
-            break;
-        default:
-            CLEAR();
-            printf("\n\t\tChoix invalide...");
-            menuPrincipal();
-    }while ((choix < 1) && (choix >4));
-
-}
-
+//Les fonctions
 
 void MenuPrincipal()
 {
@@ -85,16 +53,16 @@ choixMenuPrincipal();
 
 void MenuEtablissement()
 {
-printf("
+
 printf("                                                                              \n");
-printf("      ###           #######       ###      ###     #######                    \n");
-printf("      ###           ########      #####    ###     ########                   \n");
-printf("      ###           ###    ##     #####    ###     ###    ##                  \n");
-printf("      ###           ###    ##     ###  ##  ###     ###    ##                  \n");
-printf("      ###           ###    ##     ###  ##  ###     ########                   \n");
-printf("      ###           ###    ##     ###    #####     ###   ###                  \n");
-printf("      ######### ### ########  ### ###    ##### ### ###    ###  ###            \n");
-printf("      ######### ### #######   ### ###     #### ### ###     ### ###            \n");
+printf("       ###           #######       ###      ###     #######                   \n");
+printf("       ###           ########      #####    ###     ########                  \n");
+printf("       ###           ###    ##     #####    ###     ###    ##                 \n");
+printf("       ###           ###    ##     ###  ##  ###     ###    ##                 \n");
+printf("       ###           ###    ##     ###  ##  ###     ########                  \n");
+printf("       ###           ###    ##     ###    #####     ###   ###                 \n");
+printf("       ######### ### ########  ### ###    ##### ### ###    ###  ###           \n");
+printf("       ######### ### #######   ### ###     #### ### ###     ### ###           \n");
 printf("                                                                              \n");
 printf("                                                                              \n");
 printf("##############################################################################\n");
@@ -110,11 +78,22 @@ printf("########################################################################
 choixMenuEtablissement();
 }
 
+
+
+
 void MenuClasse()
 {
 
-
-
+printf("                                                                              \n");
+printf("       ###           #######       ###      ###     #######                   \n");
+printf("       ###           ########      #####    ###     ########                  \n");
+printf("       ###           ###    ##     #####    ###     ###    ##                 \n");
+printf("       ###           ###    ##     ###  ##  ###     ###    ##                 \n");
+printf("       ###           ###    ##     ###  ##  ###     ########                  \n");
+printf("       ###           ###    ##     ###    #####     ###   ###                 \n");
+printf("       ######### ### ########  ### ###    ##### ### ###    ###  ###           \n");
+printf("       ######### ### #######   ### ###     #### ### ###     ### ###           \n");
+printf("                                                                              \n");
 printf("                                                                              \n");
 printf("##############################################################################\n");
 printf("######                       Gestion des Classes                        ######\n");
@@ -134,11 +113,16 @@ choixMenuClasse();
 void MenuEleve()
 {
 
-
-
-
-
-
+printf("                                                                              \n");
+printf("       ###           #######       ###      ###     #######                   \n");
+printf("       ###           ########      #####    ###     ########                  \n");
+printf("       ###           ###    ##     #####    ###     ###    ##                 \n");
+printf("       ###           ###    ##     ###  ##  ###     ###    ##                 \n");
+printf("       ###           ###    ##     ###  ##  ###     ########                  \n");
+printf("       ###           ###    ##     ###    #####     ###   ###                 \n");
+printf("       ######### ### ########  ### ###    ##### ### ###    ###  ###           \n");
+printf("       ######### ### #######   ### ###     #### ### ###     ### ###           \n");
+printf("                                                                              \n");
 printf("                                                                              \n");
 printf("##############################################################################\n");
 printf("######                       Gestion des Eleves                         ######\n");
@@ -165,10 +149,85 @@ printf("\nMerci de saisir votre choix svp: ");
 scanf("%d", &choix);
 getchar();
 
+
+while (((selection < 1) && (selection >4))
+switch (choix)
+	{
+		case 1:
+                CLEAR();
+                MenuEtablissement();
+                break;
+
+		case 2:
+                CLEAR();
+                MenuClasse();
+                break;
+
+		case 3:
+                CLEAR();
+                MenuEleve();
+                break;
+
+        case 4:
+                CLEAR();
+                MenuPrincipal()
+
+		default :
+                printf("Mauvaise saisie, recommencez...");
+                MenuPrincipal();
+	}
+
+}
+
+
+choixMenuEtablissement()
+{
+int choix=0;
+
+printf("\nMerci de saisir votre choix svp: ");
+scanf("%d", &choix);
+getchar();
+
+while (((selection < 1) && (selection >4))
 switch (choix)
 	{
 		case 1:
                 SaisirEcole(Ecole_t *Ec)
+                break;
+
+		case 2:
+                SaisirEcole(Ecole_t *Ec)
+                break;
+
+		case 3:
+                AfficherEcole(Ecole_t Ec)
+                break;
+
+        case 4 :
+                CLEAR();
+                MenuPrincipal();
+
+		default :
+                printf("Mauvaise saisie, recommencez...");
+                MenuPrincipal();
+	}
+
+}
+
+
+choixMenuClasse()
+{
+int choix=0;
+
+printf("\nMerci de saisir votre choix svp: ");
+scanf("%d", &choix);
+getchar();
+
+while (((selection < 1) && (selection >4))
+switch (choix)
+	{
+		case 1:
+
                 break;
 
 		case 2:
@@ -179,30 +238,55 @@ switch (choix)
 
                 break;
 
+        case 4 :
+                CLEAR();
+                MenuPrincipal();
+
 		default :
-                    printf("Mauvaise saisie, recommencez\n");
-                    CLEAR();
-                    MenuPrincipal();
-
+                printf("Mauvaise saisie, recommencez...");
+                MenuPrincipal();
 	}
-
-
-}
-
-
-choixMenuEtablissement()
-{
-
-}
-
-
-choixMenuClasse()
-{
 
 }
 
 
 ChoixMenuEleve()
 {
+int choix=0;
 
+printf("\nMerci de saisir votre choix svp: ");
+scanf("%d", &choix);
+getchar();
+
+while (((selection < 1) && (selection >6))
+switch (choix)
+	{
+		case 1:
+
+                break;
+
+		case 2:
+
+                break;
+
+		case 3:
+
+                break;
+
+        case 4:
+
+                break;
+
+        case 5:
+
+                break;
+
+        case 6 :
+                CLEAR();
+                MenuPrincipal();
+
+		default :
+                printf("Mauvaise saisie, recommencez...");
+                MenuPrincipal();
+	}
 }
