@@ -35,7 +35,7 @@ char nomEcole[NOMMAXECOLE];         //
 char nomDirecteur [NOMMAX];         //
 char prenomDirecteur[PRENOMMAX];    //
 //Adresse_t AdresseDirecteur;       //Non utilisé pour l'instant
-Adresse_t AdresseEcole;           //
+Adresse_t AdresseEcole;             //
 int nbclasse;                       //
 struct Classe *tete;                //
 }Ecole_t;
@@ -44,8 +44,10 @@ struct Classe *tete;                //
 
 
 //Fonction Affichage Ecole
-void AfficherEcole(const char *nom_fichier, Ecole_t *Ec)
+void AfficherEcole(Ecole_t Ec);
 
+//Fonction restauration sauvegarde Ecole
+void ImporterSauvegardeEcole(const char *nom_fichier, Ecole_t *Ec);
 
 //Fonction Saisie Ecole
 void SaisirEcole();

@@ -34,13 +34,13 @@ void SaisirAdresse(Adresse_t *A)
 }
 
 
-//Fonction Affichage Ecole depuis un fichier .csv qui se nomme ici "fichier_ecole.csv"
-void AfficherEcole(const char *nom_fichier, Ecole_t *Ec)
+//Fonction Initialisation Ecole depuis un fichier .csv qui se nomme ici "fichier_ecole.csv"
+void ImporterSauvegardeEcole(const char *nom_fichier, Ecole_t *Ec)
 {
 
     //Déclaration des variables pour récupérer les informations sauvegardées dans le fichier .csv
     char ligne[LIGNE];    //chaîne temporaire contenant les lignes du fichier (une a une)
-    char *champ;        //
+    char *champ;          //
 
 
     FILE *ptr_fichierEcole; // création d'un pointeur FILE
@@ -87,11 +87,11 @@ void AfficherEcole(const char *nom_fichier, Ecole_t *Ec)
 
         champ=strtok(NULL, ";");
         strcpy(Ec->AdresseEcole.Mail, champ);
-               
+
     }
 
 fclose(ptr_fichierEcole);                        // fermeture du fichier .csv
-    
+
 //Instructions d'affichage des caractéristiques de l'Etablissement
 
 printf("\tNom de l'Etablissement : %s\n", Ec->nomEcole);
@@ -103,6 +103,22 @@ printf("\n\tTelephone Fixe: %s\n", Ec->AdresseEcole.TelMaison);
 printf("\tTelephone Mobile: %s\n", Ec->AdresseEcole.TelMobile);
 printf("\tAdresse mail: %s", Ec->AdresseEcole.Mail);
 printf("\n\tNombre de classes: %s", Ec->nbclasse);
+}
+
+
+void AfficherEcole(Ecole_t Ec)
+{
+   //Instructions d'affichage des caractéristiques de l'Etablissement
+
+    printf("\tNom de l'Etablissement : %s\n", Ec.nomEcole);
+    printf("\tDirecteur de l'Etablissement: %s %s\n", Ec.nomDirecteur, Ec.prenomDirecteur);
+    printf("\t\n------ Adresse ------");
+    printf("\n\tRue: %s", Ec.AdresseEcole.rue);
+    printf("\n\tCode Postal et Commune: %d %s", Ec.AdresseEcole.CodePostal, Ec.AdresseEcole.Ville);
+    printf("\n\tTelephone Fixe: %s\n", Ec.AdresseEcole.TelMaison);
+    printf("\tTelephone Mobile: %s\n", Ec.AdresseEcole.TelMobile);
+    printf("\tAdresse mail: %s", Ec.AdresseEcole.Mail);
+    printf("\n\tNombre de classes: %s", Ec.nbclasse);
 }
 
 
