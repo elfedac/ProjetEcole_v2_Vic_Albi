@@ -1,3 +1,7 @@
+#include "eleve.h"
+#include "ecole.h"
+#include "adresse.h"
+
 #include<stdio.h>
 #include<stdlib.h>
 

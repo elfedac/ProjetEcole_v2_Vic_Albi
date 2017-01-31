@@ -16,7 +16,7 @@
 //Classroom display function
 void AfficherClasse(Classe_t *C)
 {
-	char choix[5];
+	char choix[6];
 	int i;
 	Classe_t *niveau=C;
 	printf("Quelle classe voulez vous afficher?");
@@ -36,9 +36,18 @@ void AfficherClasse(Classe_t *C)
 
 void SaisirClasse(Classe_t *C)             
 {
+	char choix[6];
 	char fini[3]={"non"};
 	int i=0;
 	Classe_t *tete=C;
+	printf("Quelle classe voulez vous saisir?");
+	scanf("%s",choix);
+	getchar();
+	//We use "while" function for select next class
+	while(strcmp(choix,C->NomClasse)!=0)
+	{
+		C=C->suivant;//we select next class
+	}
 	do
 	{
 		printf("Nom et prenom du professeur: \n");
@@ -47,6 +56,7 @@ void SaisirClasse(Classe_t *C)
 		scanf("%s", C->NomClasse);
 		printf("Niveau de la classe:\n");
 		scanf("%s",C->niveau);
+		getchar();
 
 		for(i=0;i<NBRELEVE;i++)
 		{
@@ -74,6 +84,7 @@ void CreationClasse(Classe_t **C)
 		{ 
 			strcpy(nouvelleClasse->NomClasse,TabNomClasse[i]);
 			strcpy(nouvelleClasse->niveau,TabNiveauClasse[i]);
+			nouvelleClasse->nbEleve=0;
 			nouvelleClasse->suivant=NULL;
 
 			if ( tete==NULL)
@@ -178,6 +189,7 @@ void TrierEleve(Classe_t *Classe, int nbeleve) //Tri par permutation
 void ModifierEleve(Classe_t *C)
 {
 	int choix;
+	char choixModif;
 	char temp[25];
 	char nomModif[25];
 	char prenomModif[25];
@@ -193,35 +205,41 @@ void ModifierEleve(Classe_t *C)
 			if((strcmp(nomModif,C->TabEleve[i].nomEleve)==0) && (strcmp(prenomModif,C->TabEleve[i].prenomEleve)==0))
 			{
 				printf("Eleve trouvé dans le classe %s\n",C->NomClasse);
-				printf("que voulez-vous modifier?\n");
-				printf("1-Nom\n2-Prenom\n3-Age\n4-Sexe");
-				scanf("%d",&choix);
-				switch (choix)
+				AfficherEleve(C->TabEleve[i]);
+				printf("Souhaitez vous modifier l'eleve? o/n\t");
+				scanf("%c",&choixModif);
+				if((choixModif=='o') && (choixModif=='O')) 
 				{
-					case 1:
-						printf("Saisir nouveau nom:\n");
-						scanf("%s",temp);
-						strcpy(C->TabEleve[i].nomEleve,temp);
-						printf("nouveau nom: %s\n",C->TabEleve[i].nomEleve);
-						break;
-					case 2:
-						printf("Saisir nouveau prenom:\n");
-						scanf("%s",temp);
-						strcpy(C->TabEleve[i].prenomEleve,temp);
-						printf("nouveau prenom: %s\n",C->TabEleve[i].prenomEleve);
-						break;
-					case 3:
-						SaisirDate(&C->TabEleve[i])
-						break;
-					case 4:
-						printf("Saisir nouveau sexe:\n");
-						scanf("%c",temp);
-						strcpy(C->TabEleve[i].sexe,temp);
-						printf("nouveau sexe: %c\n",C->TabEleve[i].nomEleve);
-						break;
+					printf("que voulez-vous modifier?\n");
+					printf("1-Nom\n2-Prenom\n3-Age\n4-Sexe");
+					scanf("%d",&choix);
+					switch (choix)
+					{
+						case 1:
+							printf("Saisir nouveau nom:\n");
+							scanf("%s",temp);
+							strcpy(C->TabEleve[i].nomEleve,temp);
+							printf("nouveau nom: %s\n",C->TabEleve[i].nomEleve);
+							break;
+						case 2:
+							printf("Saisir nouveau prenom:\n");
+							scanf("%s",temp);
+							strcpy(C->TabEleve[i].prenomEleve,temp);
+							printf("nouveau prenom: %s\n",C->TabEleve[i].prenomEleve);
+							break;
+						case 3:
+							SaisirDate(&C->TabEleve[i])
+							break;
+						case 4:
+							printf("Saisir nouveau sexe:\n");
+							scanf("%c",temp);
+							strcpy(C->TabEleve[i].sexe,temp);
+							printf("nouveau sexe: %c\n",C->TabEleve[i].nomEleve);
+							break;
+					}
+					verif=1;
+					break;
 				}
-				verif=1;
-				break;
 			}
 			else
 				C=C->suivant;

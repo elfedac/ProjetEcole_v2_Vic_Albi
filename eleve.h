@@ -3,6 +3,10 @@
 #include<string.h>
 #include <ctype.h>
 #include<time.h>
+#include "classe.h"
+#include "ecole.h"
+#include "menu.h"
+#include "adresse.h"
 
 #ifndef ELEVE_H
 #define ELEVE_H

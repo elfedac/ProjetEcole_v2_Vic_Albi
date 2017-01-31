@@ -34,7 +34,7 @@ printf("######                     4 : Quitter                                  
 printf("######                                                                  ######\n");
 printf("##############################################################################\n");
 
-choixMenuPrincipal();
+choixMenuPrincipal(&Ec);
 }
 
 
@@ -62,7 +62,7 @@ printf("######                     4 : Retour Menu Principal                    
 printf("######                                                                  ######\n");
 printf("##############################################################################\n");
 
-choixMenuEtablissement();
+choixMenuEtablissement(&Ec);
 }
 
 
@@ -92,7 +92,7 @@ printf("######                     4 : Retour Menu Principal                    
 printf("######                                                                  ######\n");
 printf("##############################################################################\n");
 
-choixMenuClasse();
+choixMenuClasse(&Ec);
 
 }
 
@@ -115,15 +115,13 @@ printf("########################################################################
 printf("######                       Gestion des Eleves                         ######\n");
 printf("######                                                                  ######\n");
 printf("######                     1 : Saisir un Eleve                          ######\n");
-printf("######                     2 : Modifier un Eleve                        ######\n");
-printf("######                     3 : Permuter un Eleve                        ######\n");
-printf("######                     4 : Supprimer un Eleve                       ######\n");
-printf("######                     5 : Afficher un Eleve                        ######\n");
-printf("######                     6 : Retour Menu Principal                    ######\n");
+printf("######                     2 : Rechercher/Modifier un Eleve             ######\n");
+printf("######                     3 : Supprimer un Eleve                       ######\n");
+printf("######                     4 : Retour Menu Principal                    ######\n");
 printf("######                                                                  ######\n");
 printf("##############################################################################\n");
 
-ChoixMenuEleve();
+ChoixMenuEleve(&Ec);
 }
 
 
@@ -187,7 +185,7 @@ printf("                                ......                                  
 
 
 
-void choixMenuPrincipal()
+void choixMenuPrincipal(&Ec)
 {
 int choix=0;
 
@@ -227,7 +225,7 @@ switch (choix)
 }
 
 
-void choixMenuEtablissement()
+void choixMenuEtablissement(&Ec)
 {
 int choix=0;
 
@@ -240,19 +238,19 @@ switch (choix)
 	{
 		case 1:
                 CLEAR();
-                SaisirEcole(Ecole_t *Ec);
+                SaisirEcole(&Ec);
                 MenuEtablissement();
                 break;
 
 		case 2:
                 CLEAR();
-                SaisirEcole(Ecole_t *Ec);
+                SaisirEcole(&Ec);
                 MenuEtablissement();
                 break;
 
 		case 3:
                 CLEAR();
-                AfficherEcole(Ecole_t Ec);
+                AfficherEcole(Ec);
                 MenuEtablissement();
                 break;
 
@@ -269,7 +267,7 @@ switch (choix)
 }
 
 
-void choixMenuClasse()
+void choixMenuClasse(&Ec)
 {
 int choix=0;
 
@@ -282,19 +280,19 @@ switch (choix)
 	{
 		case 1:
                 CLEAR();
-                SaisirClasse(Classe_t *C);
+                SaisirClasse(&Ec->Tete);
                 MenuClasse();
                 break;
 
 		case 2:
                 CLEAR();
-                AjouterClasse(Classe_t **C);
+                AjouterClasse(&Ec->Tete);
                 MenuClasse();
                 break;
 
 		case 3:
                 CLEAR();
-                AfficherClasse(Classe_t *C);
+                AfficherClasse(Ec.Tete);
                 MenuClasse();
                 break;
 
@@ -314,43 +312,39 @@ switch (choix)
 void ChoixMenuEleve()
 {
 int choix=0;
-
+char Niveau[4];
 printf("\nMerci de saisir votre choix svp: ");
 scanf("%d", &choix);
 getchar();
 
-while (((selection < 1) && (selection >6))
+while (((selection < 1) && (selection >4))
 switch (choix)
 	{
 		case 1:
                 CLEAR();
-                SaisirEleve(Eleve_t *E);
+                SaisirEleve(&E);
+                TrouverNiveau(E, &Niveau);
+                if(AffecterEleve(E,&Ec.Tete, Niveau)==1)
+				{
+					AjouterClasse(&Ec->Tete,Niveau);
+					AffecterEleve(E, &Ec->Tete, Niveau);
+				}
                 MenuEleve();
                 break;
 
 		case 2:
                 CLEAR();
-                ModifierEleve(Classe_t *C);
+                ModifierEleve(&Ec->Tete);
                 MenuEleve();
                 break;
 
-		case 3:
-
-                break;
-
-        case 4:
+        case 3:
                 CLEAR();
-                SupprimerEleve(Classe_t *C);
+                SupprimerEleve(&Ec->tete);
                 MenuEleve();
                 break;
 
-        case 5:
-                CLEAR();
-                AfficherEleve(Eleve_t E);
-                MenuEleve();
-                break;
-
-        case 6 :
+        case 4 :
                 CLEAR();
                 MenuPrincipal();
                 break;

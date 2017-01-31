@@ -1,16 +1,18 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@                                    @@
 @@       Saisie/Affichage Ecole       @@
 @@                                    @@
 @@        par Manuel  + groupe        @@
 @@         pour optimisation          @@
 @@                                    @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include "adresse.h"
+#include "eleve.h"
+#include "classe.h"
 
 
 #ifndef ECOLE_H
@@ -37,7 +39,7 @@ char prenomDirecteur[PRENOMMAX];    //
 //Adresse_t AdresseDirecteur;       //Non utilisé pour l'instant
 Adresse_t AdresseEcole;             //
 int nbclasse;                       //
-struct Classe *tete;                //
+Classe_t Tete;                //
 }Ecole_t;
 
 

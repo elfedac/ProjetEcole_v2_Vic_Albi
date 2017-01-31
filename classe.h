@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "eleve.h"
 #include "ecole.h"
 #include "adresse.h"
+
+#ifndef CLASSE_H
+#define CLASSE_H
 
 #define NOMCLASSE 5
 #define NBRELEVE 25
@@ -16,7 +20,7 @@ typedef struct prof
 char nomProf[NOMMAX];           //
 char prenomProf[PRENOMMAX];     //
 Adresse_t AdresseProf;          //
-}Prof_t; 
+}Prof_t;
 
 //Recursive structure classroom
 typedef struct Classe
@@ -24,7 +28,7 @@ typedef struct Classe
 char NomClasse[NOMCLASSE];      // for tcheck class they have same level
 char niveau [3];                // level of class : CP, CE1, CE2, CM1 et CM2
 Prof_t Prof;                    // Teacher structure added but in class display, it's limited to display lastname and firstname
-int nbEleve;                    // 
+int nbEleve;                    //
 Eleve_t TabEleve[NBRELEVE];     //
 struct Classe *suivant;         //
 }Classe_t;
@@ -45,8 +49,8 @@ void TrierEleve(Classe_t *Classe)
 void ModifierEleve(Classe_t *C)
 
 //Input classroom function
-void SaisirClasse(Classe_t *C) 
- 
+void SaisirClasse(Classe_t *C)
+
 void SupprimerEleve(Classe_t *C)
 
 #endif
