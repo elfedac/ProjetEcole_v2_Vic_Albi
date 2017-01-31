@@ -37,7 +37,10 @@ void CreationClasse(Classe_t **C);
 
 //Classroom input function
 void AjouterClasse(Classe_t **C);
- 
+
+//Students list sort by alphabetical order (Manuel)
+void TrierEleve(Classe_t *Classe)
+
 //
 void ModifierEleve(Classe_t *C)
 
