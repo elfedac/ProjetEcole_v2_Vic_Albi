@@ -4,19 +4,6 @@
 #define CLEAR()     system("clear");
 
 
-void choixMenuPrincipal();
-
-void menuPrincipal();
-
-
-
-int main()
-{
-
-MenuPrincipal();
-
-}
-
 //Les fonctions
 
 void MenuPrincipal()
@@ -140,7 +127,7 @@ ChoixMenuEleve();
 }
 
 
-AuRevoir()
+void AuRevoir()
 {
 
 printf("                                 .:AMMO:                                    ");
@@ -200,7 +187,7 @@ printf("                                ......                                  
 
 
 
-choixMenuPrincipal()
+void choixMenuPrincipal()
 {
 int choix=0;
 
@@ -240,7 +227,7 @@ switch (choix)
 }
 
 
-choixMenuEtablissement()
+void choixMenuEtablissement()
 {
 int choix=0;
 
@@ -282,7 +269,7 @@ switch (choix)
 }
 
 
-choixMenuClasse()
+void choixMenuClasse()
 {
 int choix=0;
 
@@ -324,7 +311,7 @@ switch (choix)
 }
 
 
-ChoixMenuEleve()
+void ChoixMenuEleve()
 {
 int choix=0;
 

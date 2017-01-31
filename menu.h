@@ -4,10 +4,26 @@
 #ifndef MENU_H
 #define MENU_H
 
-void choixMenuPrincipal(int choix);
 
-void menuPrincipal();
+//Les protoypes de fonctions ultra compliqués...
 
+void MenuPrincipal();
+
+void MenuEtablissement();
+
+void MenuClasse();
+
+void MenuEleve();
+
+void AuRevoir();
+
+void choixMenuPrincipal();
+
+void choixMenuEtablissement();
+
+void choixMenuClasse();
+
+void ChoixMenuEleve();
 
 
 #endif // MENU_H
