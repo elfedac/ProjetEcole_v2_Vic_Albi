@@ -136,7 +136,7 @@ void TrierEleve(Classe_t *Classe, int nbeleve) //Tri par permutation
     //création deux boucles de compteur
     int i,j;
 
-	for (i=0; i<Classe->nbElevenbeleve-1; i++)
+	for (i=0; i<Classe->nbEleve-1; i++)
 		for(j=i; j<Classe->nbEleve; j++)
 		{
 		    if (strcmp(TabEleve[i].nom, TabEleve[j].nom)>0)
